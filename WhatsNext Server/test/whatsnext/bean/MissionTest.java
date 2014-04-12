@@ -3,7 +3,6 @@ package whatsnext.bean;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
-import java.lang.reflect.Type;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 
 public class MissionTest {
 
@@ -63,12 +61,16 @@ public class MissionTest {
 		mission.setValue(Mission.SISTER_MISSIONS, "Mariner 3");
 		mission.setValue(Mission.RELATED_MISSIONS, null);
 		mission.setValue(Mission.MUSIC, "Little Red Rooster - The Rolling Stones");
-		List<Mission> missions = new ArrayList<>();
-		missions.add(mission);
-		missions.add(mission);
-		missions.add(mission);
 //		System.out.println(mission);
-		System.out.println(gson.toJson(missions));
+//		List<Mission> missions = new ArrayList<>();
+//		missions.add(mission);
+//		missions.add(mission);
+//		missions.add(mission);
+		List<Map<String, Object>> list = new ArrayList<>();
+		list.add(mission.getInfo());
+		list.add(mission.getInfo());
+		list.add(mission.getInfo());
+		System.out.println(gson.toJson(list));
 	}
 
 	@Test
