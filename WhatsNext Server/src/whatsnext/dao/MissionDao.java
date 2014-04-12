@@ -1,13 +1,21 @@
 package whatsnext.dao;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import whatsnext.bean.Mission;
 import whatsnext.bean.MissionConstants;
 
 public class MissionDao implements MissionConstants {
 
+	private static SimpleDateFormat	format	= new SimpleDateFormat("yyyy-MM-dd");
+	private static Gson				gson	= new GsonBuilder().setPrettyPrinting().setDateFormat("yyyy-MM-dd").create();
 	public static void main(String args[]) {
 //		createTable();
 		Mission m = new Mission();
@@ -142,7 +150,17 @@ public class MissionDao implements MissionConstants {
 		System.out.println("Records created successfully");
 	}
 
-	public static String getAllMissionsAsJson(){
+	public static List<Mission> getAllMissionList() {
 		return null;
+	}
+	
+	public static String getAllMissionsAsJson(){
+		List<Mission> allMissions = getAllMissionList();
+		List<Map<String, Object>> infoList = new ArrayList<>();
+		for (Mission m : allMissions) {
+			infoList.add(m.getInfo());
+		}
+		return gson.toJson(infoList);
+		
 	}
 }
