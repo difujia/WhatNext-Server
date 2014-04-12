@@ -31,7 +31,6 @@ public class MissionDao implements MissionConstants {
 		m.setValue(MORE_INFO , "test1");
 //		System.out.println(m.getValue(NAME));
 		addMission(m);
-
 	}
 
 	public static void createTable() {
