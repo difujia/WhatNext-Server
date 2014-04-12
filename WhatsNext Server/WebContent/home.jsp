@@ -34,24 +34,24 @@
 	String music = (String) m.getValue(Mission.MUSIC);
 	String more_info = (String) m.getValue(Mission.MORE_INFO);
 %>
-	<li>Name: <input type="text" name="<%=Mission.NAME %>"value=<%= name%>> </li>
-	<li>year: <input type="text" name="<%=Mission.YEAR%>" value=<%= year%>> </li>
-	<li>agency: <input type="text" name="<%=Mission.AGENCY%>" value=<%= agency%>> </li>
-	<li>launch_site: <input type="text" name="<%=Mission.LAUNCH_SITE%>" value=<%= launch_site%>> </li>
-	<li>type: <input type="text" name="<%=Mission.TYPE%>" value=<%= type%>> </li>
-	<li>earth_weight: <input type="text" name="<%=Mission.EARTH_WEIGHT%>" value=<%= earth_weight%>> </li>
-	<li>size: <input type="text" name="<%=Mission.SIZE%>" value=<%= size%>> </li>
-	<li>key_images: <input type="text" name="<%=Mission.KEY_IMAGES%>" value=<%= key_images%>> </li>
-	<li>images: <input type="text" name="<%=Mission.IMAGES%>" value=<%= images%>> </li>
-	<li>key_findings: <input type="text" name="<%=Mission.KEY_FINDINGS%>" value=<%= key_findings%>> </li>
-	<li>enabling_technologies: <input type="text" name="<%=Mission.ENABLING_TECHNOLOGIES%>" value=<%= enabling_technologies%>> </li>
-	<li>problems: <input type="text" name="<%=Mission.PROBLEMS%>" value=<%= problems%>> </li>
-	<li>start_date: <input type="text" name="<%=Mission.START_DATE%>" value=<%= start_date%>> </li>	
-	<li>end_date: <input type="text" name="<%=Mission.END_DATE%>" value=<%= end_date%>> </li>
-	<li>sister_missions: <input type="text" name="<%=Mission.SISTER_MISSIONS%>" value=<%= sister_missions%>> </li>
-	<li>related_missions: <input type="text" name="<%=Mission.RELATED_MISSIONS%>" value=<%= related_missions%>> </li>
-	<li>music: <input type="text" name="<%=Mission.MUSIC%>" value=<%= music%>> </li>
-	<li>more_info: <input type="text" name="<%=Mission.MORE_INFO%>" value=<%= more_info%>> </li>
+	<li>Name: <input type="text" name="<%=Mission.NAME%>"value=<%= name == null ? "" : name %>> </li>
+	<li>year: <input type="text" name="<%=Mission.YEAR%>" value=<%= year == null ? "" : year%>> </li>
+	<li>agency: <input type="text" name="<%=Mission.AGENCY%>" value=<%= agency == null ? "" : agency%>> </li>
+	<li>launch_site: <input type="text" name="<%=Mission.LAUNCH_SITE%>" value=<%= launch_site == null ? "" : launch_site%>> </li>
+	<li>type: <input type="text" name="<%=Mission.TYPE%>" value=<%= type == null ? "" : type%>> </li>
+	<li>earth_weight: <input type="text" name="<%=Mission.EARTH_WEIGHT%>" value=<%= earth_weight == null ? "" : earth_weight%>> </li>
+	<li>size: <input type="text" name="<%=Mission.SIZE%>" value=<%= size == null ? "" : size%>> </li>
+	<li>key_images: <input type="text" name="<%=Mission.KEY_IMAGES%>" value=<%= key_images == null ? "" : key_images%>> </li>
+	<li>images: <input type="text" name="<%=Mission.IMAGES%>" value=<%= images == null ? "" : images%>> </li>
+	<li>key_findings: <input type="text" name="<%=Mission.KEY_FINDINGS%>" value=<%= key_findings == null ? "" : key_findings%>> </li>
+	<li>enabling_technologies: <input type="text" name="<%=Mission.ENABLING_TECHNOLOGIES%>" value=<%= enabling_technologies == null ? "" : enabling_technologies%>> </li>
+	<li>problems: <input type="text" name="<%=Mission.PROBLEMS%>" value=<%= problems == null ? "" : problems%>> </li>
+	<li>start_date: <input type="text" name="<%=Mission.START_DATE%>" value=<%= start_date == null ? "" : start_date%>> </li>	
+	<li>end_date: <input type="text" name="<%=Mission.END_DATE%>" value=<%= end_date == null ? "" : end_date%>> </li>
+	<li>sister_missions: <input type="text" name="<%=Mission.SISTER_MISSIONS%>" value=<%= sister_missions == null ? "" : sister_missions%>> </li>
+	<li>related_missions: <input type="text" name="<%=Mission.RELATED_MISSIONS%>" value=<%= related_missions == null ? "" : related_missions%>> </li>
+	<li>music: <input type="text" name="<%=Mission.MUSIC%>" value=<%= music == null ? "" : music%>> </li>
+	<li>more_info: <input type="text" name="<%=Mission.MORE_INFO%>" value=<%= more_info == null ? "" : more_info%>> </li>
 	<li><input type="submit" value="submit"></li>
 </ul> 
 

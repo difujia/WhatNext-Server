@@ -1,6 +1,8 @@
 package whatsnext.servlet;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -89,6 +91,9 @@ public class AddMissionServlet extends HttpServlet {
 		mission.setValue(Mission.MORE_INFO, more_info);
 		String json = gson.toJson(mission);
 		System.out.println(json);
+//		File temp = File.createTempFile("missions", ".json");
+//		PrintWriter writer = new PrintWriter(temp);
+//		writer.print(json);
 	}
 
 }
