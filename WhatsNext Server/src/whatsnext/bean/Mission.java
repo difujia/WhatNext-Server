@@ -15,17 +15,6 @@ public class Mission implements MissionConstants {
 	@SerializedName("mission")
 	private Map<String, Object>	info	= new HashMap<String, Object>();
 
-	@Expose(serialize = false, deserialize = false)
-	private int					id;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public void setValue(String key, Object value) {
 		info.put(key, value);
 	}
