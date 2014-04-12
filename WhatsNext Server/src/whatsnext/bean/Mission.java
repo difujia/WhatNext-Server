@@ -7,12 +7,15 @@ import java.util.Set;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Mission implements MissionConstants {
 
 	@SerializedName("mission")
 	private Map<String, Object>	info	= new HashMap<String, Object>();
+
+	@Expose(serialize = false, deserialize = false)
 	private int					id;
 
 	public int getId() {
