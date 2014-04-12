@@ -1,6 +1,7 @@
 package whatsnext.dao;
 
 import java.sql.*;
+import java.util.List;
 
 import whatsnext.bean.Mission;
 import whatsnext.bean.MissionConstants;
@@ -141,12 +142,7 @@ public class MissionDao implements MissionConstants {
 		System.out.println("Records created successfully");
 	}
 
-	public static void deleteMission(int id) {
-
-	}
-
-	public static Mission getMission(int id) {
-		Mission mission = new Mission();
-		return mission;
+	public static String getAllMissionsAsJson(){
+		return null;
 	}
 }
