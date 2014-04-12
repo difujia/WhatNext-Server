@@ -27,6 +27,10 @@ public class Mission implements MissionConstants {
 		return info.keySet();
 	}
 
+	void setInfo(Map<String, Object> info) {
+		this.info = info;
+	}
+
 	@Override
 	public String toString() {
 		ToStringBuilder builder = new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE);
