@@ -19,4 +19,5 @@ public interface MissionConstants {
 	String SISTER_MISSIONS = "sister_missions";
 	String RELATED_MISSIONS = "related_missions";
 	String MUSIC = "music";
+	String MORE_INFO="more_information";
 }
