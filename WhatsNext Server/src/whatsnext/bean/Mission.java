@@ -7,6 +7,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 public class Mission implements MissionConstants {
+	
 
 	private Map<String, Object>	info	= new HashMap<String, Object>();
 
