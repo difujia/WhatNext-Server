@@ -64,6 +64,7 @@ public class AddMissionServlet extends HttpServlet {
 		String music= request.getParameter("music");
 		String more_info= request.getParameter("moreinfo");
 		
+		
 		mission.setValue(mission.NAME, name);
 		mission.setValue(mission.YEAR, year);
 		mission.setValue(mission.AGENCY, agency);
