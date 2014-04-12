@@ -21,6 +21,7 @@ import whatsnext.bean.Mission;
 @WebServlet("/AddMissionServlet")
 public class AddMissionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String SEPERATOR="|||";
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	Mission mission = new Mission();
        
@@ -52,21 +53,21 @@ public class AddMissionServlet extends HttpServlet {
 		String earth_weight= request.getParameter(Mission.EARTH_WEIGHT);		
 		String size= request.getParameter(Mission.SIZE);
 		String key_images= request.getParameter(Mission.KEY_IMAGES);
-		String[] array_key_images = key_images.split(",");
+		String[] array_key_images = key_images.split(SEPERATOR);
 		String images= request.getParameter(Mission.IMAGES);
-		String[] array_images = images.split(",");
+		String[] array_images = images.split(SEPERATOR);
 		String key_findings= request.getParameter(Mission.KEY_FINDINGS);
-		String[] array_key_findings = key_findings.split(",");
+		String[] array_key_findings = key_findings.split(SEPERATOR);
 		String enabling_techonlogies= request.getParameter(Mission.ENABLING_TECHNOLOGIES);
-		String[] array_enabling_techonlogies = enabling_techonlogies.split(",");
+		String[] array_enabling_techonlogies = enabling_techonlogies.split(SEPERATOR);
 		String problems= request.getParameter(Mission.PROBLEMS);
-		String[] array_problems = problems.split(",");
+		String[] array_problems = problems.split(SEPERATOR);
 		String start_date= request.getParameter(Mission.START_DATE);
 		String end_date= request.getParameter(Mission.END_DATE);
 		String sister_missions= request.getParameter(Mission.SISTER_MISSIONS);
-		String[] array_sister_missions = sister_missions.split(",");
+		String[] array_sister_missions = sister_missions.split(SEPERATOR);
 		String related_missions= request.getParameter(Mission.RELATED_MISSIONS);
-		String[] array_related_missions = related_missions.split(",");
+		String[] array_related_missions = related_missions.split(SEPERATOR);
 		String music= request.getParameter(Mission.MUSIC);
 		String more_info= request.getParameter(Mission.MORE_INFO);
 		
