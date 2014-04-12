@@ -1,11 +1,11 @@
-package whatsnext.util;
+package whatsnext.dao;
 
 import java.sql.*;
 
 import whatsnext.bean.Mission;
 import whatsnext.bean.MissionConstants;
 
-public class SQLiteJDBC implements MissionConstants {
+public class MissionDao implements MissionConstants {
 
 	public static void main(String args[]) {
 		createTable();
