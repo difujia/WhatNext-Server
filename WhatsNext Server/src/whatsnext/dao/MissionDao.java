@@ -12,7 +12,7 @@ public class MissionDao implements MissionConstants {
 		Mission m = new Mission();
 		m.setId(0);
 		m.setValue(NAME, "test1");
-		m.setValue(YEAR, 1991);
+		m.setValue(YEAR, "1991");
 		m.setValue(AGENCY , "test1");
 		m.setValue(LAUNCH_SITE, "test1");
 		m.setValue(TYPE , "test1");
@@ -59,7 +59,7 @@ public class MissionDao implements MissionConstants {
 					+ SIZE
 					+ "           TEXT    , "
 					+ KEY_IMAGES
-					+ "       	  REAL    , "
+					+ "       	  TEXT    , "
 					+ IMAGES
 					+ "           TEXT    , "
 					+ KEY_FINDINGS
@@ -120,7 +120,7 @@ public class MissionDao implements MissionConstants {
 //					+ mission.getValue(MUSIC) + ","
 //					+ mission.getValue(MORE_INFO)+");";
 
-			String sql="INSERT INTO MISSION VALUES(0,\"a\",1991,\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\")";
+//			String sql="INSERT INTO MISSION VALUES(0,\"a\",1991,\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\")";
 			StringBuilder sb=new StringBuilder();
 			sb.append("INSERT INTO MISSION VALUES(");
 			sb.append(mission.getId());
@@ -129,11 +129,8 @@ public class MissionDao implements MissionConstants {
 				sb.append((String)mission.getValue(key));
 				sb.append("\"");
 			}
-			sb.append(")");
-//			String sqlString = sb.toString();
-//			sqlString = (String) sqlString.subSequence(0, sqlString.length()-2);
-			
-			stmt.execute(sql);
+			sb.append(")");			
+			stmt.execute(sb.toString());
 			stmt.close();
 			c.commit();
 			c.close();
