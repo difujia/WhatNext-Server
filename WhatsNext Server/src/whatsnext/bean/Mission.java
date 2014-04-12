@@ -27,7 +27,11 @@ public class Mission implements MissionConstants {
 		return info.keySet();
 	}
 
-	void setInfo(Map<String, Object> info) {
+	public Map<String, Object> getInfo() {
+		return info;
+	}
+
+	public void setInfo(Map<String, Object> info) {
 		this.info = info;
 	}
 

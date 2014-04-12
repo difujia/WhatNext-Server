@@ -3,8 +3,12 @@ package whatsnext.bean;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
+import java.lang.reflect.Type;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Before;
@@ -12,11 +16,15 @@ import org.junit.Test;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 public class MissionTest {
 
 	SimpleDateFormat	format	= new SimpleDateFormat("yyyy-MM-dd");
-	Gson				gson	= new GsonBuilder().setPrettyPrinting().setDateFormat("yyyy-MM-dd").create(); 
+	Gson				gson	= new GsonBuilder().setPrettyPrinting().setDateFormat("yyyy-MM-dd").create();
 
 	@Before
 	public void setUp() throws Exception {
@@ -55,16 +63,43 @@ public class MissionTest {
 		mission.setValue(Mission.SISTER_MISSIONS, "Mariner 3");
 		mission.setValue(Mission.RELATED_MISSIONS, null);
 		mission.setValue(Mission.MUSIC, "Little Red Rooster - The Rolling Stones");
-		System.out.println(mission);
-		System.out.println(gson.toJson(mission));
+		List<Mission> missions = new ArrayList<>();
+		missions.add(mission);
+		missions.add(mission);
+		missions.add(mission);
+//		System.out.println(mission);
+		System.out.println(gson.toJson(missions));
 	}
-	
+
 	@Test
 	public void test2() throws FileNotFoundException {
 		Reader reader = new FileReader("sample_mission_format.json");
-		Map<String, Object> map = gson.fromJson(reader, Map.class);
-		for (String key: map.keySet()) {
-			System.out.println(map.get(key));
+		JsonParser parser = new JsonParser();
+		JsonArray array = parser.parse(reader).getAsJsonArray();
+//		Type type = new TypeToken<Map<String, Object>>() {}.getType();
+//		Map<String, Object>[] list = gson.fromJson(reader, type);
+		Map<String, Mission> missions = new HashMap<String, Mission>();
+		for (JsonElement item : array) {
+			Mission info = gson.fromJson(item, Mission.class);
+		}
+		
+		for (Mission m : missions.values()) {
+			System.out.println(m);
 		}
 	}
+	
+	@Test
+	public void test3() throws FileNotFoundException {
+		Reader reader = new FileReader("sample_mission_format.json");
+		Mission m = gson.fromJson(reader, Mission.class);
+		for (String key : m.getKeys()) {
+			System.out.println(key);
+		}
+	}
+	
+	
+	
+	
+	
+	
 }

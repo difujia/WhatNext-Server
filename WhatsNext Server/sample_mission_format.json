@@ -1,4 +1,4 @@
-  missions: [
+
   {
     name: "Mariner 4",
     year: "1964",
@@ -38,4 +38,3 @@
     related_missions: [],
     music: "Little Red Rooster - The Rolling Stones"
   }
-]
