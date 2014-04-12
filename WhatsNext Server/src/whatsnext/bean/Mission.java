@@ -2,14 +2,26 @@ package whatsnext.bean;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-public class Mission implements MissionConstants {
-	
+import com.google.gson.annotations.SerializedName;
 
+public class Mission implements MissionConstants {
+
+	@SerializedName("mission")
 	private Map<String, Object>	info	= new HashMap<String, Object>();
+	private int					id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public void setValue(String key, Object value) {
 		info.put(key, value);
@@ -17,6 +29,10 @@ public class Mission implements MissionConstants {
 
 	public Object getValue(String key) {
 		return info.get(key);
+	}
+
+	public Set<String> getKeys() {
+		return info.keySet();
 	}
 
 	@Override
