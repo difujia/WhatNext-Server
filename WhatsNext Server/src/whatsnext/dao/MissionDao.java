@@ -19,7 +19,7 @@ public class MissionDao implements MissionConstants {
 			.setDateFormat("yyyy-MM-dd").create();
 	private static final String SEPERATOR="\\|\\|\\|";
 	public static void main(String args[]) {
-		// createTable();
+//		 createTable();
 //		Mission m = new Mission();
 //		m.setId(0);
 //		m.setValue(NAME, "test1");
@@ -93,12 +93,11 @@ public class MissionDao implements MissionConstants {
 					+ MORE_INFO + "      	  TEXT    )";
 			stmt.executeUpdate(sql);
 			stmt.close();
+			System.out.println("Table created successfully");
 			c.close();
 		} catch (Exception e) {
-			System.err.println(e.getClass().getName() + ": " + e.getMessage());
-			System.exit(0);
+			e.printStackTrace();
 		}
-		System.out.println("Table created successfully");
 	}
 
 	public static void addMission(Mission mission) {
@@ -106,33 +105,11 @@ public class MissionDao implements MissionConstants {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:whatsnext.db");
 			c.setAutoCommit(false);
-			System.out.println("Opened database successfully");
+			c = DriverManager.getConnection("jdbc:sqlite:whatsnext.db");
 			stmt = c.createStatement();
-			// String sql = "INSERT INTO MISSION "+"VALUES("
-			// + mission.getId()+",'"
-			// + mission.getValue(NAME) + "','"
-			// + mission.getValue(YEAR)+ "',"
-			// + mission.getValue(AGENCY) + ","
-			// + mission.getValue(LAUNCH_SITE) + ","
-			// + mission.getValue(TYPE) + ","
-			// + mission.getValue(EARTH_WEIGHT) + ","
-			// + mission.getValue(SIZE) + ","
-			// + mission.getValue(KEY_IMAGES) + ","
-			// + mission.getValue(IMAGES) + ","
-			// + mission.getValue(KEY_FINDINGS)+ ","
-			// + mission.getValue(ENABLING_TECHNOLOGIES) + ","
-			// + mission.getValue(PROBLEMS) + ","
-			// + mission.getValue(START_DATE)+ ","
-			// + mission.getValue(END_DATE) + ","
-			// + mission.getValue(SISTER_MISSIONS) + ","
-			// + mission.getValue(RELATED_MISSIONS)+ ","
-			// + mission.getValue(MUSIC) + ","
-			// + mission.getValue(MORE_INFO)+");";
-
-			// String
-			// sql="INSERT INTO MISSION VALUES(0,\"a\",1991,\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\")";
+			System.out.println("Opened database successfully");
+			
 			StringBuilder sb = new StringBuilder();
 			sb.append("INSERT INTO MISSION VALUES(");
 			sb.append(mission.getId());
@@ -146,11 +123,10 @@ public class MissionDao implements MissionConstants {
 			stmt.close();
 			c.commit();
 			c.close();
+			System.out.println("Records created successfully");
 		} catch (Exception e) {
-			System.err.println(e.getClass().getName() + ": " + e.getMessage());
-			System.exit(0);
+			e.printStackTrace();
 		}
-		System.out.println("Records created successfully");
 	}
 
 	public static List<Mission> getAllMissionList() {
@@ -195,13 +171,10 @@ public class MissionDao implements MissionConstants {
 			pstmt.close();
 			c.commit();
 			c.close();
+			System.out.println("Records created successfully");
 		} catch (Exception e) {
-			System.err.println(e.getClass().getName() + ": " + e.getMessage());
-			System.exit(0);
-		} finally {
-
+			e.printStackTrace();
 		}
-		System.out.println("Records created successfully");
 		return list;
 	}
 

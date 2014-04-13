@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import whatsnext.bean.Mission;
+import whatsnext.dao.MissionDao;
 
 /**
  * Servlet implementation class AddMissionServlet
@@ -37,7 +38,11 @@ public class AddMissionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		response.setContentType("application/json");
+		response.setHeader("Cache-Control", "nocache");
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(MissionDao.getAllMissionsAsJson());
 	}
 
 	/**
