@@ -42,7 +42,7 @@ public class MissionDao implements MissionConstants {
 		m.setValue(MUSIC, "test1");
 		m.setValue(MORE_INFO, "test1");
 		// System.out.println(m.getValue(NAME));
-		addMission(m);
+//		addMission(m);
 		System.out.println(getAllMissionsAsJson());
 	}
 
@@ -60,8 +60,8 @@ public class MissionDao implements MissionConstants {
 			c = DriverManager.getConnection("jdbc:sqlite:whatsnext.db");
 
 			stmt = c.createStatement();
-			String sql = "CREATE TABLE MISSION "
-					+ "(ID INT PRIMARY KEY     NOT NULL,"
+			String sql = "CREATE TABLE MISSION ("
+//					+ "(_id INTEGER PRIMARY KEY     AUTOINCREMENT,"
 					+ NAME
 					+ "           TEXT    NOT NULL, "
 					+ YEAR
@@ -72,13 +72,13 @@ public class MissionDao implements MissionConstants {
 					+ "           TEXT    , "
 					+ TYPE
 					+ "           TEXT    , "
-					+ EARTH_WEIGHT
-					+ "           TEXT    , "
 					+ SIZE
 					+ "           TEXT    , "
-					+ KEY_IMAGES
-					+ "       	  TEXT    , "
+					+ EARTH_WEIGHT
+					+ "           TEXT    , "
 					+ IMAGES
+					+ "       	  TEXT    , "
+					+ KEY_IMAGES
 					+ "           TEXT    , "
 					+ KEY_FINDINGS
 					+ "           TEXT    , "
