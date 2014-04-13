@@ -1,5 +1,6 @@
 package whatsnext.dao;
 
+import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,41 +18,45 @@ public class MissionDao implements MissionConstants {
 	private static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 	private static Gson gson = new GsonBuilder().setPrettyPrinting()
 			.setDateFormat("yyyy-MM-dd").create();
-	private static final String SEPERATOR="\\|\\|\\|";
+	private static final String SEPERATOR="\\|";
 	public static void main(String args[]) {
-//		 createTable();
-//		Mission m = new Mission();
-//		m.setId(0);
-//		m.setValue(NAME, "test1");
-//		m.setValue(YEAR, "1991");
-//		m.setValue(AGENCY, "test1");
-//		m.setValue(LAUNCH_SITE, "test1");
-//		m.setValue(TYPE, "test1");
-//		m.setValue(EARTH_WEIGHT, "test1");
-//		m.setValue(SIZE, "test1");
-//		m.setValue(KEY_IMAGES, "test1");
-//		m.setValue(IMAGES, "test1");
-//		m.setValue(KEY_FINDINGS, "test1");
-//		m.setValue(ENABLING_TECHNOLOGIES, "test1");
-//		m.setValue(PROBLEMS, "test1");
-//		m.setValue(START_DATE, "test1");
-//		m.setValue(END_DATE, "test1");
-//		m.setValue(SISTER_MISSIONS, "test1");
-//		m.setValue(RELATED_MISSIONS, "test1");
-//		m.setValue(MUSIC, "test1");
-//		m.setValue(MORE_INFO, "test1");
-//		// System.out.println(m.getValue(NAME));
-//		addMission(m);
+    	createTable();
+		Mission m = new Mission();
+		m.setId(1);
+		m.setValue(NAME, "test1");
+		m.setValue(YEAR, "1991");
+		m.setValue(AGENCY, "test1");
+		m.setValue(LAUNCH_SITE, "test1");
+		m.setValue(TYPE, "test1");
+		m.setValue(EARTH_WEIGHT, "test1");
+		m.setValue(SIZE, "test1");
+		m.setValue(KEY_IMAGES, "test1");
+		m.setValue(IMAGES, "test1");
+		m.setValue(KEY_FINDINGS, "test1");
+		m.setValue(ENABLING_TECHNOLOGIES, "test1");
+		m.setValue(PROBLEMS, "test1");
+		m.setValue(START_DATE, "test1");
+		m.setValue(END_DATE, "test1");
+		m.setValue(SISTER_MISSIONS, "test1");
+		m.setValue(RELATED_MISSIONS, "test1");
+		m.setValue(MUSIC, "test1");
+		m.setValue(MORE_INFO, "test1");
+		// System.out.println(m.getValue(NAME));
+		addMission(m);
 		System.out.println(getAllMissionsAsJson());
 	}
 
 	public static void createTable() {
+		File db=new File("whatsnext.db");		
+		if(db.exists()){
+			System.out.println("return");
+			return ;
+		}
 		Connection c = null;
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqlite.JDBC");
 			c = DriverManager.getConnection("jdbc:sqlite:whatsnext.db");
-			System.out.println("Opened database successfully");
 
 			stmt = c.createStatement();
 			String sql = "CREATE TABLE MISSION "
@@ -105,8 +110,9 @@ public class MissionDao implements MissionConstants {
 		Statement stmt = null;
 		try {
 			Class.forName("org.sqlite.JDBC");
-			c.setAutoCommit(false);
+			
 			c = DriverManager.getConnection("jdbc:sqlite:whatsnext.db");
+			c.setAutoCommit(false);
 			stmt = c.createStatement();
 			System.out.println("Opened database successfully");
 			
@@ -179,10 +185,36 @@ public class MissionDao implements MissionConstants {
 	}
 
 	public static String getAllMissionsAsJson() {
+		
+		createTable();
+		
+//		Mission m = new Mission();
+//		m.setId(0);
+//		m.setValue(NAME, "test1");
+//		m.setValue(YEAR, "1991");
+//		m.setValue(AGENCY, "test1");
+//		m.setValue(LAUNCH_SITE, "test1");
+//		m.setValue(TYPE, "test1");
+//		m.setValue(EARTH_WEIGHT, "test1");
+//		m.setValue(SIZE, "test1");
+//		m.setValue(KEY_IMAGES, "test1");
+//		m.setValue(IMAGES, "test1");
+//		m.setValue(KEY_FINDINGS, "test1");
+//		m.setValue(ENABLING_TECHNOLOGIES, "test1");
+//		m.setValue(PROBLEMS, "test1");
+//		m.setValue(START_DATE, "test1");
+//		m.setValue(END_DATE, "test1");
+//		m.setValue(SISTER_MISSIONS, "test1");
+//		m.setValue(RELATED_MISSIONS, "test1");
+//		m.setValue(MUSIC, "test1");
+//		m.setValue(MORE_INFO, "test1");
+//		// System.out.println(m.getValue(NAME));
+//		addMission(m);
+		
 		List<Mission> allMissions = getAllMissionList();
 		List<Map<String, Object>> infoList = new ArrayList<>();
-		for (Mission m : allMissions) {
-			infoList.add(m.getInfo());
+		for (Mission mission : allMissions) {
+			infoList.add(mission.getInfo());
 		}
 		return gson.toJson(infoList);
 	}

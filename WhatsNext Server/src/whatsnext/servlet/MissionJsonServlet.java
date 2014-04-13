@@ -22,7 +22,7 @@ import whatsnext.dao.MissionDao;
 @WebServlet("/MissionJsonServlet")
 public class MissionJsonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String SEPERATOR="|||";
+	private static final String SEPERATOR="\\|";
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	Mission mission = new Mission();
        
