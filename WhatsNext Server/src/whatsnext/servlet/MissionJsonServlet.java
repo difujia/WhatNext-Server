@@ -19,8 +19,8 @@ import whatsnext.dao.MissionDao;
 /**
  * Servlet implementation class AddMissionServlet
  */
-@WebServlet("/AddMissionServlet")
-public class AddMissionServlet extends HttpServlet {
+@WebServlet("/MissionJsonServlet")
+public class MissionJsonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String SEPERATOR="|||";
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -29,7 +29,7 @@ public class AddMissionServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddMissionServlet() {
+    public MissionJsonServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
