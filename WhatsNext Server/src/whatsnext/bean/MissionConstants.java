@@ -5,9 +5,9 @@ public interface MissionConstants {
 	String NAME = "name";
 	String YEAR = "year";
 	String AGENCY = "agency";
-	String LAUNCH_SITE = "launchSite";
+	String LAUNCH_SITE = "launch_site";
 	String TYPE = "type";
-	String EARTH_WEIGHT = "earthWeight";
+	String EARTH_WEIGHT = "earth_weight";
 	String SIZE = "size";
 	String KEY_IMAGES = "key_images";
 	String IMAGES = "images";
